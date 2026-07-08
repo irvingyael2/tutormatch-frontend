@@ -1,0 +1,208 @@
+<div class="landing-page">
+  <!-- BARRA DE NAVEGACIÓN PÚBLICA -->
+  <header class="navbar">
+    <div class="logo">
+      <span class="logo-icon">
+        <svg
+          width="28"
+          height="28"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5" />
+        </svg>
+      </span>
+      TutorMatch
+    </div>
+    <nav class="nav-actions">
+      <a href="#" class="nav-link">Registrarse</a>
+      <button class="btn-primary" (click)="authService.login()">Iniciar Sesión</button>
+    </nav>
+  </header>
+
+  <!-- SECCIÓN HERO -->
+  <main class="hero-section">
+    <div class="hero-bg-pattern"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">El conocimiento crece cuando se comparte</h1>
+      <p class="hero-subtitle">
+        Únete a la red de tutorías universitarias. Encuentra apoyo académico de tus compañeros o
+        conviértete en tutor y certifica tus conocimientos.
+      </p>
+      <div class="hero-buttons">
+        <button class="btn-primary btn-lg" (click)="authService.login()">Comenzar ahora</button>
+        <button class="btn-secondary btn-lg" (click)="authService.login()">Quiero ser Tutor</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <span class="stat-number">500+</span>
+          <span class="stat-label">Tutores activos</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">120+</span>
+          <span class="stat-label">Materias</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+          <span class="stat-number">2,000+</span>
+          <span class="stat-label">Estudiantes</span>
+        </div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </main>
+
+  <!-- SECCIÓN DE CARACTERÍSTICAS -->
+  <section class="features-section">
+    <div class="section-header">
+      <h2 class="section-title">¿Por qué elegir TutorMatch?</h2>
+      <p class="section-subtitle">
+        Todo lo que necesitas para potenciar tu aprendizaje en un solo lugar
+      </p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <div class="feature-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+          </div>
+        </div>
+        <h3>Encuentra tu materia</h3>
+        <p>
+          Busca en nuestro catálogo en tiempo real y encuentra la tutoría que mejor se adapte a tu
+          horario.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <div class="feature-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+          </div>
+        </div>
+        <h3>Agenda organizada</h3>
+        <p>
+          Controla tus próximas sesiones, recibe recordatorios y lleva un registro de tu historial
+          académico.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <div class="feature-icon">
+            <svg
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9"></polygon>
+            </svg>
+          </div>
+        </div>
+        <h3>Calidad garantizada</h3>
+        <p>
+          Todos nuestros tutores son validados por administración y evaluados por la misma
+          comunidad.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN CÓMO FUNCIONA (nueva) -->
+  <section class="steps-section">
+    <div class="section-header">
+      <h2 class="section-title">Comienza en 3 pasos</h2>
+      <p class="section-subtitle">Así de simple es formar parte de nuestra comunidad</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-number">1</div>
+        <h3>Regístrate</h3>
+        <p>Crea tu cuenta con tu correo institucional y completa tu perfil académico.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card">
+        <div class="step-number">2</div>
+        <h3>Conecta</h3>
+        <p>Busca tutores por materia, disponibilidad y valoraciones de otros estudiantes.</p>
+      </div>
+      <div class="step-connector"></div>
+      <div class="step-card">
+        <div class="step-number">3</div>
+        <h3>Aprende</h3>
+        <p>Agenda tu sesión y comienza a dominar esa materia que tanto te cuesta.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="logo" style="color: var(--white)">
+          <span class="logo-icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+              <path d="M6 12v5c0 2 4 3 6 3s6-1 6-3v-5" />
+            </svg>
+          </span>
+          TutorMatch
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Impulsando el aprendizaje colaborativo</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 TutorMatch - Desarrollado por Nova Solutions</p>
+    </div>
+  </footer>
+</div>

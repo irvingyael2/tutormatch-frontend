@@ -1,0 +1,254 @@
+.app-layout {
+  min-height: 100vh;
+  background-color: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================== LOGO ================== */
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+}
+
+.logo-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(37, 99, 235, 0.06) 100%);
+  border-radius: 10px;
+  color: var(--primary-color);
+}
+
+.logo-text {
+  font-weight: 700;
+}
+
+/* ================== TOPBAR ================== */
+.topbar {
+  background-color: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.04),
+    0 1px 2px -1px rgba(0, 0, 0, 0.03);
+  padding: 0 5%;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+  transition: box-shadow 0.3s ease;
+}
+
+.topbar:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ================== LINKS DEL MENÚ ================== */
+.nav-links {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 8px 16px;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  white-space: nowrap;
+}
+
+.nav-icon {
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.25s;
+}
+
+.nav-item:hover {
+  color: var(--primary-color);
+  background-color: rgba(37, 99, 235, 0.04);
+}
+
+.nav-item:hover .nav-icon {
+  opacity: 1;
+}
+
+/* Pestaña activa */
+.nav-item.active-link {
+  color: var(--primary-color);
+  background-color: rgba(37, 99, 235, 0.08);
+  font-weight: 700;
+}
+
+.nav-item.active-link .nav-icon {
+  opacity: 1;
+}
+
+/* Destacar admin */
+.admin-link:hover,
+.admin-link.active-link {
+  color: #7c3aed;
+  background-color: rgba(124, 58, 237, 0.06);
+}
+
+/* ================== ACCIONES DE USUARIO ================== */
+.user-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Badge del rol */
+.role-badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--bg-light);
+  border: 1px solid #e2e8f0;
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.role-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+}
+
+/* Menú de usuario */
+.user-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary {
+  border: 1px solid #ef4444;
+  background-color: #dc2626;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.25s;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.nav-actions .btn-primary {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+}
+
+/* ================== PERFIL DE USUARIO ================== */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-left: 2px solid rgba(226, 232, 240, 0.6);
+  padding-left: 15px;
+  margin-left: 5px;
+}
+
+.user-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  text-transform: capitalize;
+}
+
+/* Responsivo para ocultar el nombre en móviles */
+@media (max-width: 768px) {
+  .user-profile {
+    border-left: none;
+    padding-left: 0;
+  }
+  .user-name {
+    display: none;
+  }
+}
+
+/* ================== ÁREA DE CONTENIDO ================== */
+.app-content {
+  flex: 1;
+  padding: 40px 5%;
+  max-width: 1400px;
+  margin: 0 auto;
+  width: 100%;
+  animation: fadeContent 0.3s ease-out;
+}
+
+@keyframes fadeContent {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ================== RESPONSIVE ================== */
+@media (max-width: 1024px) {
+  .nav-item span {
+    display: none; /* Oculta el texto, mantiene iconos */
+  }
+  .nav-item {
+    padding: 8px 12px;
+    gap: 0;
+  }
+  .role-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    padding: 0 4%;
+  }
+  .nav-links {
+    gap: 4px;
+  }
+  .user-menu {
+    gap: 8px;
+  }
+  .btn-logout span {
+    display: none;
+  }
+  .btn-logout {
+    padding: 8px;
+    border-radius: 50%;
+  }
+}

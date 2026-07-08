@@ -1,3 +1,30 @@
 import { Routes } from '@angular/router';
+import { Landing } from './pages/landing/landing';
+import { Layout } from './pages/layout/layout';
+import { Home } from './pages/home/home';
+import { authGuard } from './core/guards/auth-guard';
+import { publicGuard } from './core/guards/auth-guard';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    // Ruta pública
+    path: '',
+    canActivateChild: [publicGuard],
+    component: Landing,
+  },
+  {
+    // Rutas privadas
+    path: 'app',
+    component: Layout,
+    canActivateChild: [authGuard],
+    children: [
+      { path: 'home', component: Home }
+      // Aquí agregaremos luego las rutas de tus compañeros (catalogo, agenda, etc.)
+    ],
+  },
+  {
+    // Redirección si se escribe una URL que no existe
+    path: '**',
+    redirectTo: '',
+  }
+];

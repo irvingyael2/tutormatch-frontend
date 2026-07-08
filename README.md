@@ -1,59 +1,43 @@
-# TutormatchFrontend
+# 🎓 TutorMatch - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.6.
+TutorMatch es una plataforma web orientada a conectar a la comunidad estudiantil de la Universidad Tecnológica de Querétaro. Permite a los alumnos solicitar apoyo académico y a los estudiantes capacitados ofrecer sesiones como tutores.
 
-## Development server
+Este repositorio contiene la Single Page Application (SPA) construida con Angular, la cual interactúa con un ecosistema de microservicios en Spring Boot a través de un API Gateway.
 
-To start a local development server, run:
+## Tecnologías y Arquitectura
 
-```bash
-ng serve
-```
+- **Framework:** Angular 18/19 (Standalone Components, sin SSR para compatibilidad con OIDC).
+- **Seguridad:** OAuth2 con flujo PKCE (Proof Key for Code Exchange).
+- **Gestión de Identidad:** Integración directa con Spring Authorization Server mediante la librería `angular-oauth2-oidc`.
+- **Estilos:** CSS3 puro con variables globales y diseño responsivo.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Estructura del Proyecto
 
-## Code scaffolding
+El código fuente principal se encuentra en la carpeta `src/app/`, organizado bajo los siguientes estándares:
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- `/core`: Contiene el corazón de la aplicación.
+  - `/guards`: Guardianes de rutas asíncronos (`auth.guard.ts`, `public.guard.ts`) que protegen las vistas.
+  - `/services`: Servicios inyectables, destacando `auth.service.ts` para la orquestación de tokens y decodificación JWT.
+  - `auth.config.ts`: Mapeo de conexión con el Auth Server.
+- `/pages`: Componentes principales de las vistas.
+  - `/landing`: Página pública de presentación.
+  - `/layout`: Cascarón dinámico (NavBar) que reacciona a los roles del usuario (Alumno, Tutor, Admin).
+  - `/home`: Panel de control principal.
 
-```bash
-ng generate component component-name
-```
+## Requisitos Previos
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Para ejecutar este proyecto en tu entorno local, necesitas tener instalado:
 
-```bash
-ng generate --help
-```
+- [Node.js](https://nodejs.org/) (Versión LTS recomendada).
+- [Angular CLI](https://angular.dev/tools/cli).
+- El ecosistema Backend de TutorMatch (Eureka, Auth Server y API Gateway) corriendo localmente.
 
-## Building
+## Flujo de Seguridad
 
-To build the project run:
+Este frontend no almacena contraseñas ni gestiona bases de datos. Delega toda la autenticación al Auth Server.
 
-```bash
-ng build
-```
+- Al intentar ingresar a una ruta protegida, el public.guard redirige al usuario.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+- La librería genera un code_challenge y lanza al usuario al login de Spring.
 
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Tras un login exitoso, Angular intercepta el code en la URL, lo canjea por un Access Token (JWT) y lo adjunta automáticamente (vía Interceptor) a todas las peticiones dirigidas al API Gateway (http://localhost:8080/api/).
