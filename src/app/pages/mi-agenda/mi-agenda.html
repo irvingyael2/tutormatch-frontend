@@ -278,7 +278,7 @@
     <div class="campo-grupo">
       <label class="campo-label" for="fechaHora">
         Fecha y hora *
-        <span class="campo-aviso" *ngIf="fechaBloqueada">🔒 Bloqueada (hay inscritos)</span>
+        <span class="campo-aviso" *ngIf="fechaBloqueada">Bloqueada (ya se han inscrito)</span>
       </label>
       <input id="fechaHora" type="datetime-local" class="campo-input"
         [class.campo-bloqueado]="fechaBloqueada"

@@ -1,7 +1,6 @@
 import { Routes } from '@angular/router';
 import { Landing } from './pages/landing/landing';
 import { Layout } from './pages/layout/layout';
-import { Home } from './pages/home/home';
 import { MiAgenda } from './pages/mi-agenda/mi-agenda';
 import { Catalogo } from './pages/catalogo/catalogo';
 import { authGuard } from './core/guards/auth-guard';
@@ -27,7 +26,7 @@ export const routes: Routes = [
     component: Layout,
     canActivateChild: [authGuard],
     children: [
-      { path: 'home', component: Home },
+      { path: '', redirectTo: 'catalogo', pathMatch: 'full' },
       // EP-03/04: Mi Agenda (Tutor: HU-09/10/11/12 + Alumno: HU-15/16)
       { path: 'mi-agenda', component: MiAgenda },
       // EP-04: Catálogo de tutorías (HU-13/14)
